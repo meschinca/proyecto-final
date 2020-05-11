@@ -1,11 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome!</title>
+    <title>¡Bienvenido!</title>
 </head>
+
 <body>
-    
+    <main>
+        <!-- Pancarta de bienvenida -->
+        <div id="welcome-banner" class="sect-container">
+            <h1>¡Bienvenido a Collective Dreams!</h1>
+        </div>
+        <!-- Sección EXPLORAR -->
+        <div id="exp-container" class="sect-container">
+            <!-- Explorar -->
+            <h2>EXPLORAR</h2>
+            <p>¿Eres nuevo aquí? Echa un vistazo a los sueños de otros. <br>
+            Descubre similitudes y reflexiona con las interpretaciones de otros usuarios.</p>
+            <!-- Presentación de sueños seleccionados como tarjetas deslizantes -->
+            <div id="card-slider" class="slider">
+                <!-- Botón para volver atrás -->
+                <button id="rw-slide"><img src="" alt="" srcset=""></button>
+                <!-- Tarjeta 1 -->
+                <div id="card-1" class="card">
+                    <article>
+                        <img src="" alt="user avatar" srcset=""><p>Usuario 1</p>
+                        <h1>Sueño 1</h1>
+                        <p>Lorem ipsum dolor sit amet, <br>
+                        consectetur adipisicing elit, <br>
+                        sed do eiusmod tempor incididunt <br>
+                        ut labore et dolore magna aliqua.</p>
+                    </article>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div id="card-1" class="card">
+                    <article>
+                        <img src="" alt="user avatar" srcset=""><p>Usuario 1</p>
+                        <h1>Sueño 1</h1>
+                        <p>Lorem ipsum dolor sit amet, <br>
+                        consectetur adipisicing elit, <br>
+                        sed do eiusmod tempor incididunt <br>
+                        ut labore et dolore magna aliqua.</p>
+                    </article>
+                </div>
+                <!-- Botón para avanzar -->
+                <button id="ff-slide"><img src="" alt="" srcset=""></button>
+            </div>
+            <!-- Búsqueda -->
+            <h2>BÚSQUEDA</h2>
+            <p>¿No encuentras lo que buscas? Busca por etiquetas <br>
+            Ej.: #caída  #animales  #familia  #dinero  #pesadilla</p>
+            <input type="text" placeholder="Buscar ...">
+        </div>
+        <!-- Sección REGISTRO -->
+        <div id="reg-container" class="sect-container">
+            <!-- Registrar -->
+            <h2>REGISTRO</h2>
+            <p>Para comenzar a escribir y catalogar tus sueños, o para <br>
+            comentar las publicaciones de otros, crea una cuenta. ¡Es gratis!</p>
+            <form action="">
+                <label for="user">Usuario:</label>
+                <input type="text" name="user" id="user-name"><br>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" name="email" id="e-mail"><br>
+                <label for="pssw">Contraseña:</label>
+                <input type="password" name="pssw" id="password">
+                <input type="submit" value="Enviar">
+            </form>
+            <!-- Ingresar -->
+            <h2>INGRESAR</h2>
+            <p>¿Ya tienes una cuenta? Ingresa aquí usando tus credenciales.</p>
+            <form action="">
+                <label for="user">Usuario:</label>
+                <input type="text" name="user" id="user-name"><br>
+                <label for="pssw">Contraseña:</label>
+                <input type="password" name="pssw" id="password">
+                <input type="submit" value="Entrar">
+            </form>
+        </div>
+    </main>
+    <script src=""></script>
+    <!-- Pie de página con info de contacto y legales -->
+    <footer>
+
+    </footer>
 </body>
+
 </html>
