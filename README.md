@@ -6,7 +6,7 @@ El objetivo de este proyecto es integrar los conocimientos aprendidos durante el
 
 ## Idea de Aplicación Web
 
-Inspirado en una idea de mi hermana y en la interacción dentro del sitio www.SongMeanings.net, se me ocurrió crear una plataforma para archivar sueños, buscar coincidencias temáticas con otros usuarios, comentar y/o analizar esos sueños y obtener guía sobre los significados de los mismos.
+Inspirado en una idea de mi hermana y en la interacción dentro del sitio www.SongMeanings.com, se me ocurrió crear una plataforma para archivar sueños, buscar coincidencias temáticas con otros usuarios, comentar y/o analizar esos sueños y obtener guía sobre los significados de los mismos.
 
 ## Estructura y componentes
 
