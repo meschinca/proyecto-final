@@ -1,0 +1,5 @@
+Explore (search)
+-usa Main layout
+-search input
+-muestra los resultados de búsqueda
+-tiene filtros para mejorar coincidencias

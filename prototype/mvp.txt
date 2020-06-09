@@ -1,0 +1,6 @@
+M.V.P (elementos):
+-Landing
+-Búsqueda
+-Registro y Login
+-Home
+-Visor de sueños

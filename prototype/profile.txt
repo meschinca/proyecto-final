@@ -1,0 +1,4 @@
+Profile
+-usa Main layout
+-contiene la información del usuario para editar
+-opciones y configuraciones extra

@@ -1,0 +1,4 @@
+Home
+-Usa Main layout
+-Elemento para crear nuevo sueño
+-Elemento para ver sueños ya cargados

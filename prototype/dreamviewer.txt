@@ -1,0 +1,6 @@
+Dream Viewer (vista de sueño)
+-usa Main layout
+-panel izq con info del poster/post
+-panel central con el Título, Resumen (si hay) y Desarrollo
+-panel derecho con herramientas de anotaciones
+-panel inferior con comentarios generales

@@ -1,0 +1,3 @@
+Exit
+-Simple mensaje de despedida
+-botón para volver a landing

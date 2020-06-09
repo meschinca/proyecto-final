@@ -1,0 +1,25 @@
+{
+  "name": "proyecto-final",
+  "version": "1.0.0",
+  "description": "El objetivo de este proyecto es integrar los conocimientos aprendidos durante el curso de Node.js realizando una demo de aplicación web. Para el front-end se utilizará lo visto para HTML5, CSS3 y ES6. Para el back-end se usará Node.js, Express para el servidor, Handlebars para crear las vistas y MongoDB para almacenar datos.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon run server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meschinca/proyecto-final.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meschinca/proyecto-final/issues"
+  },
+  "homepage": "https://github.com/meschinca/proyecto-final#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "mongodb": "^3.5.8",
+    "nodemon": "^2.0.4"
+  }
+}

@@ -1,0 +1,5 @@
+Main (layout)
+-navbar con botones de redirección a:
+	|| Home || Explorar || Mis sueños (archivo) || Notificaciones || Perfil || Salir (logout) ||
+*sin sesión activa sólo aparecen Home y Explorar
+-footer con About us, Legal, y T y Cs 
