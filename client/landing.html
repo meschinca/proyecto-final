@@ -59,23 +59,23 @@
             <h2>REGISTRO</h2>
             <p>Para comenzar a escribir y catalogar tus sueños, o para <br>
             comentar las publicaciones de otros, crea una cuenta. ¡Es gratis!</p>
-            <form action="">
+            <form action="/passport/signup" method="POST">
                 <label for="user">Usuario:</label>
-                <input type="text" name="user" id="user-name"><br>
+                <input type="text" name="username" id="user-name"><br>
                 <label for="email">Correo electrónico:</label>
                 <input type="email" name="email" id="e-mail"><br>
                 <label for="pssw">Contraseña:</label>
-                <input type="password" name="pssw" id="password">
+                <input type="password" name="password" id="password">
                 <input type="submit" value="Enviar">
             </form>
             <!-- Ingresar -->
             <h2>INGRESAR</h2>
             <p>¿Ya tienes una cuenta? Ingresa aquí usando tus credenciales.</p>
-            <form action="">
+            <form action="/passport/login" method="POST">
                 <label for="user">Usuario:</label>
-                <input type="text" name="user" id="user-name"><br>
+                <input type="text" name="username" id="user-name"><br>
                 <label for="pssw">Contraseña:</label>
-                <input type="password" name="pssw" id="password">
+                <input type="password" name="password" id="password">
                 <input type="submit" value="Entrar">
             </form>
         </div>
