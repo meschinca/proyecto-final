@@ -1,0 +1,4 @@
+User(Model)
+-username
+-password
+-email

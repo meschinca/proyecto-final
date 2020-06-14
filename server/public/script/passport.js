@@ -24,11 +24,11 @@ const registerNewUser = (username, password, email, cb) => {
         password,
         email
       };
-      usersCollection.insertOne(newUser, (err, result) => {
+      usersCollection.insertOne(newUser, (err, match) => {
         if (err) {
           cb({ success: false, message: "Hubo un error en la solicitud de respuesta del servicio de datos. Por favor intente nuevamente en otro momento." });
         } else {
-          cb({ success: true, user: result.ops[0], message: "Usuario registrado con éxito." });
+          cb({ success: true, user: match.ops[0], message: "Usuario registrado con éxito." });
         }
         // Cerramos la conexión con la base de datos
         client.close();
@@ -89,7 +89,7 @@ const getUserByName = (username, cb) => {
       // Si se conectó a MongoDB, inicializamos la base de datos y la colección
       const Pernoctario = client.db("Pernoctario");
       const usersCollection = Pernoctario.collection("users");
-      // Buscamos al usuario en la colección y si lo encuentra devolvemos el objeto con success: true y user: result al cb
+      // Buscamos al usuario en la colección y si lo encuentra devolvemos el objeto con success: true y user: match al cb
       usersCollection.findOne({ username: username }, (err, match) => {
         if (err) {
           cb({ success: false, message: "Hubo un error en la solicitud de respuesta del servicio de datos. Por favor intente nuevamente en otro momento." });
@@ -122,7 +122,7 @@ const getUserByEmail = (email, cb) => {
       // Si se conectó a MongoDB, inicializamos la base de datos y la colección
       const Pernoctario = client.db("Pernoctario");
       const usersCollection = Pernoctario.collection("users");
-      // Buscamos al usuario en la colección y si lo encuentra devolvemos el objeto con success: true y user: result al cb
+      // Buscamos al usuario en la colección y si lo encuentra devolvemos el objeto con success: true y user: match al cb
       usersCollection.findOne({ email: email }, (err, match) => {
         if (err) {
           cb({ success: false, message: "Hubo un error en la solicitud de respuesta del servicio de datos. Por favor intente nuevamente en otro momento." });
