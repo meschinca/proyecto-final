@@ -5,6 +5,8 @@ const express = require("express");
 const path = require("path");
 const expHbs = require("express-handlebars");
 const bodyParser = require("body-parser");
+// Fijo las rutas
+const passportRouter = require("./routers/passportRouter");
 
 // Inicialización
 const app = express();
@@ -25,12 +27,16 @@ app.use(express.static(path.join(__dirname, "public")));
 // Body parser para tipo de contenido "aplication/x-www-form-urlencoded"
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+
 // GET a página landing
 app.get("/", (req, res)=>{
   res.sendFile(path.join(__dirname, "../client/landing.html"));
 })
 
+app.use("/passport", passportRouter);
+
 // Inicio del servidor
 app.listen(port, ()=>{
-  console.log("Servidor iniciado en puerto 5678: http://localhost:5678");
+  console.log(`Servidor iniciado en puerto 5678: http://localhost:${port}`);
 })
