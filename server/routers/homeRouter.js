@@ -45,7 +45,7 @@ homeRouter.get("/dreams", (req, res) =>{
     if (!result.success) {
       res.json(result);
     } else {
-      res.json(result.dream);
+      res.json(result.dreams);
     }
   });
 });

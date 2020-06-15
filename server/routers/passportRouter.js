@@ -3,6 +3,7 @@ const passport = require("../public/script/passport");
 
 const passportRouter = express.Router();
 
+// POST para registrar nuevo usuario
 passportRouter.post("/signup", (req, res) => {
   // 1- Verifico que no exista el usuario por nombre o email
   passport.getUserByName(req.body.username, result => {
@@ -44,6 +45,7 @@ passportRouter.post("/signup", (req, res) => {
   });
 });
 
+// POST para ingresar con cuenta existente
 passportRouter.post("/login", (req, res) => {
   // 1- Verifico que exista el usuario y coincida la contraseña
   passport.getUserByName(req.body.username, result => {

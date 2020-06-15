@@ -9,6 +9,7 @@ const expSession = require("express-session");
 // Fijo las rutas
 const passportRouter = require("./routers/passportRouter");
 const homeRouter = require("./routers/homeRouter");
+const explorerRouter = require("./routers/explorerRouter");
 
 // Inicialización
 const app = express();
@@ -45,6 +46,7 @@ app.get("/", (req, res)=>{
 
 app.use("/passport", passportRouter);
 app.use("/home", homeRouter);
+app.use("/explore", explorerRouter);
 
 // Inicio del servidor
 app.listen(port, ()=>{

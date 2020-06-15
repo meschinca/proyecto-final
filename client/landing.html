@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Bienvenido!</title>
     <link rel="stylesheet" href="style/welcome.css">
 </head>
+
 <body>
     <main>
         <!-- Pancarta de bienvenida -->
@@ -17,7 +19,7 @@
             <!-- Explorar -->
             <h2>EXPLORAR</h2>
             <p>¿Eres nuevo aquí? Echa un vistazo a los sueños de otros. <br>
-            Descubre similitudes y reflexiona con las interpretaciones de otros usuarios.</p>
+                Descubre similitudes y reflexiona con las interpretaciones de otros usuarios.</p>
             <!-- Presentación de sueños seleccionados como tarjetas deslizantes -->
             <div id="card-slider" class="slider">
                 <!-- Botón para volver atrás -->
@@ -25,23 +27,25 @@
                 <!-- Tarjeta 1 -->
                 <div id="card-1" class="card">
                     <article class="in-card">
-                        <imgsrc="" alt="user avatar" srcset=""><p>Usuario 1</p>
-                        <h1>Sueño 1</h1>
-                        <p>Lorem ipsum dolor sit amet, <br>
-                        consectetur adipisicing elit, <br>
-                        sed do eiusmod tempor incididunt <br>
-                        ut labore et dolore magna aliqua.</p>
+                        <imgsrc="" alt="user avatar" srcset="">
+                            <p>Usuario 1</p>
+                            <h1>Sueño 1</h1>
+                            <p>Lorem ipsum dolor sit amet, <br>
+                                consectetur adipisicing elit, <br>
+                                sed do eiusmod tempor incididunt <br>
+                                ut labore et dolore magna aliqua.</p>
                     </article>
                 </div>
                 <!-- Tarjeta 2 -->
                 <div id="card-2" class="card">
                     <article>
-                        <img src="" alt="user avatar" srcset=""><p>Usuario 2</p>
+                        <img src="" alt="user avatar" srcset="">
+                        <p>Usuario 2</p>
                         <h1>Sueño 2</h1>
                         <p>Lorem ipsum dolor sit amet, <br>
-                        consectetur adipisicing elit, <br>
-                        sed do eiusmod tempor incididunt <br>
-                        ut labore et dolore magna aliqua.</p>
+                            consectetur adipisicing elit, <br>
+                            sed do eiusmod tempor incididunt <br>
+                            ut labore et dolore magna aliqua.</p>
                     </article>
                 </div>
                 <!-- Botón para avanzar -->
@@ -50,15 +54,18 @@
             <!-- Búsqueda -->
             <h2>BÚSQUEDA</h2>
             <p>¿No encuentras lo que buscas? Busca por etiquetas <br>
-            Ej.: #caída  #animales  #familia  #dinero  #pesadilla</p>
-            <input type="text" placeholder="Buscar ...">
+                Ej.: caída, animales, familia, dinero, pesadilla</p>
+            <form action="/explore/dreams" method="GET">
+                <input type="text" name="tags" placeholder="Buscar ...">
+                <input type="submit" value="Buscar">
+            </form>
         </div>
         <!-- Sección REGISTRO -->
         <div id="reg-container" class="sect-container">
             <!-- Registrar -->
             <h2>REGISTRO</h2>
             <p>Para comenzar a escribir y catalogar tus sueños, o para <br>
-            comentar las publicaciones de otros, crea una cuenta. ¡Es gratis!</p>
+                comentar las publicaciones de otros, crea una cuenta. ¡Es gratis!</p>
             <form action="/passport/signup" method="POST">
                 <label for="user">Usuario:</label>
                 <input type="text" name="username" id="user-name"><br>

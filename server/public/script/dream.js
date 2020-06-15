@@ -15,13 +15,15 @@ const createDream = (dream, cb) => {
       // Si se conectó a MongoDB, inicializamos la base de datos y la colección
       const Pernoctario = client.db("Pernoctario");
       const dreamsCollection = Pernoctario.collection("dreams");
+      // Procesamos los tags antes de agregarlos
+      const formattedTags = dream.tags.split(",");
       // Creamos el objeto sueño y luego lo insertamos en la base de datos
       const newDream = {
         title: dream.title,
         abstract: dream.abstract,
         body: dream.body,
         author: dream.author,
-        tags: dream.tags,
+        tags: formattedTags,
         date: new Date().toISOString()
       };
       dreamsCollection.insertOne(newDream, (err, match) => {
@@ -107,7 +109,7 @@ const getDreamByAuthor = (author, cb) => {
           }));
           cb({
             success: true,
-            dream: match,
+            dreams: match,
             message: "Se encontró un sueño con la id especificada."
           });
         }
@@ -118,8 +120,51 @@ const getDreamByAuthor = (author, cb) => {
   });
 };
 
+/**
+ * getDreamsByTags busca sueños usando como parámetro los tags ingresados
+ * @param {array} tags el array de etiquetas usadas como parámetro de búsqueda
+ * @param {function} cb 
+ */
+const getDreamsByTags = (tags, cb) => {
+  // Primero se conecta con la base de datos
+  db.MongoClient.connect(db.url, db.config, (err, client) => {
+    // Si hubo problemas para conectarse devolvemos al callback el objeto success como false
+    if (err) {
+      cb({ success: false, message: "No se pudo conectar con el servicio de datos. Por favor intente nuevamente en otro momento." });
+    } else {
+      // Si se conectó a MongoDB, inicializamos la base de datos y la colección
+      const Pernoctario = client.db("Pernoctario");
+      const dreamsCollection = Pernoctario.collection("dreams");
+      // Hago una búsqueda en la colección para los tags 
+      dreamsCollection.find( { tags: { $in: tags } } ).toArray((err, match) => {
+        if (err) {
+          cb({ success: false, message: "Hubo un error en la solicitud de respuesta del servicio de datos. Por favor intente nuevamente en otro momento." });
+        } else {
+          match = match.map(dream =>({
+            oid: dream._id.toString(),
+            title: dream.title,
+            abstract: dream.abstract,
+            body: dream.body,
+            author: dream.author,
+            tags: dream.tags,
+            date: dream.date
+          }));
+          cb({
+            success: true,
+            dreams: match,
+            message: "Se encontraron estas coincidencias."
+          });
+          // Cerramos la conexión con la base de datos
+          client.close();
+        }
+      });
+    }
+  });
+};
+
 module.exports = {
   createDream,
   getDreamById,
-  getDreamByAuthor
+  getDreamByAuthor,
+  getDreamsByTags
 }
