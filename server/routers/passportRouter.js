@@ -33,7 +33,6 @@ passportRouter.post("/signup", (req, res) => {
                 } else {
                   // Sino, confirmamos la creación del usuario y redireccionamos a /home
                   req.session.currentUser = result.user;
-                  console.log(req.session);
                   res.redirect("/home");
                 }
               });
@@ -63,13 +62,18 @@ passportRouter.post("/login", (req, res) => {
             res.json(result);
           } else {
             req.session.currentUser = result.user;
-            console.log(req.session);
             res.redirect("/home");
           }
         });
       }
     }
   });
+});
+
+// GET para cerrar sesión
+passportRouter.get("/logout", (req, res) =>{
+  req.session.destroy();
+  res.redirect("/");
 });
 
 module.exports = passportRouter;

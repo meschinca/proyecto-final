@@ -3,21 +3,6 @@ const dream = require("../public/script/dream");
 
 const homeRouter = express.Router();
 
-// GET a Home
-homeRouter.get("/", (req, res) => {
-  // 1- Si hay no una sesión iniciada redirecciona a landing
-  if (!req.session.currentUser) {
-    res.redirect("/");
-  } else {
-    // 2- Si hay una sesión activa renderiza home
-    res.render("home", {
-      layout: "main",
-      user: req.session.currentUser,
-      message: req.session.message
-    });
-  }
-});
-
 // POST para crear un nuevo sueño
 homeRouter.post("/new-dream", (req, res) => {
   // 1- Si hay no una sesión iniciada redirecciona a landing
@@ -45,9 +30,26 @@ homeRouter.get("/dreams", (req, res) =>{
     if (!result.success) {
       res.json(result);
     } else {
-      res.json(result.dreams);
+      res.render("dream-archive", {
+        dreams: result.dreams
+      });
     }
   });
+});
+
+// GET a Home
+homeRouter.get("/", (req, res) => {
+  // 1- Si hay no una sesión iniciada redirecciona a landing
+  if (!req.session.currentUser) {
+    res.redirect("/");
+  } else {
+    // 2- Si hay una sesión activa renderiza home
+    res.render("home", {
+      layout: "main",
+      user: req.session.currentUser,
+      message: req.session.message
+    });
+  }
 });
 
 module.exports = homeRouter;

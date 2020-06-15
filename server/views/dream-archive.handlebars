@@ -1,0 +1,10 @@
+<ul class="dreamList">
+  {{#each dreams}}
+  <li class="dreamList">
+    <a href="/dreams/{{this.oid}}">
+    <h1>Título: {{this.title}}</h1>
+    <h2>Resumen: {{this.abstract}}</h2>
+    </a>
+  </li>
+  {{/each}}
+</ul>

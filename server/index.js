@@ -41,7 +41,7 @@ app.use(expSession({
 
 // GET a página landing
 app.get("/", (req, res)=>{
-  res.sendFile(path.join(__dirname, "../client/landing.html"));
+  res.sendFile(path.join(__dirname, "/public/landing.html"));
 })
 
 app.use("/passport", passportRouter);

@@ -1,0 +1,29 @@
+ul.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li.navbar {
+  float: left;
+}
+
+li.navbar, a.navbar {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li.navbar a:hover:not(.active) {
+  background-color: #111;
+}
+
+.dreamList {
+  display: block;
+  border: black;
+  border-width: 2px;
+}

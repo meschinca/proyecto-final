@@ -4,9 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="/style/main.css">
 </head>
 <body>
-  <nav>Navegación</nav>
+  <nav>
+    <ul class="navbar">
+      {{#if user}}
+      <li class="navbar"><a href="/home" class="navbar">Home</a></li>
+      <li class="navbar"><a href="/explore" class="navbar">Buscar</a></li>
+      <li class="navbar"><a href="/home" class="navbar">Agregar Sueño</a></li>
+      <li class="navbar"><a href="/home/dreams?author={{user.username}}" class="navbar">Mis sueños</a></li>
+      <li class="navbar"><a href="/home/profile" class="navbar">Perfil</a></li>
+      <li class="navbar"><a href="/passport/logout" class="navbar">Cerrar Sesión</a></li>
+      {{else}}
+      <li class="navbar"><a href="/explore" class="navbar">Buscar</a></li>
+      <li class="navbar"><a href="/" class="navbar">Iniciar Sesión</a></li>
+      {{/if}}
+    </ul>
+  </nav>
   {{{body}}}
   <footer>Footer</footer>
 </body>
