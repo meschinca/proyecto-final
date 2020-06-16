@@ -27,3 +27,12 @@ li.navbar a:hover:not(.active) {
   border: black;
   border-width: 2px;
 }
+
+a {
+  color: bisque;
+}
+
+a:hover {
+  color: aliceblue;
+  text-decoration: none;
+}
