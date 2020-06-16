@@ -1,0 +1,18 @@
+<h1>{{dream.title}}</h1>
+<h3>por {{dream.author}}</h3>
+<h2>{{dream.abstract}}</h2>
+<p>{{dream.body}}</p>
+{{#if diffAuthor}}
+<form action="/home/add-comment" method="POST">
+  <input type="text" name="id" value="{{dream.oid}}" hidden>
+  <label for="comment">Agrega un Comentario:</label>
+  <textarea name="comment" id="comment" cols="30" rows="10" required></textarea>
+  <input type="submit" value="Comentar">
+</form>
+{{/if}}
+<h3>Comentarios</h3>
+<ul>
+  {{#each dream.comments}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>

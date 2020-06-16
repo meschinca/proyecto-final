@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Bienvenido!</title>
+    <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/welcome.css">
 </head>
 
@@ -12,7 +13,7 @@
     <main>
         <!-- Pancarta de bienvenida -->
         <div id="welcome-banner">
-            <h1 id="welcome-text">¡Bienvenido a Collective Dreams!</h1>
+            <h1 id="welcome-text">¡Bienvenido a Pernoctario!</h1>
         </div>
         <!-- Sección EXPLORAR -->
         <div id="exp-container" class="sect-container">
@@ -56,7 +57,7 @@
             <p>¿No encuentras lo que buscas? Busca por etiquetas <br>
                 Ej.: caída, animales, familia, dinero, pesadilla</p>
             <form action="/explore/dreams" method="GET">
-                <input type="text" name="tags" placeholder="Buscar ...">
+                <input type="text" name="tags" placeholder="Buscar ..." required>
                 <input type="submit" value="Buscar">
             </form>
         </div>
@@ -68,26 +69,28 @@
                 comentar las publicaciones de otros, crea una cuenta. ¡Es gratis!</p>
             <form action="/passport/signup" method="POST">
                 <label for="reg-user-name">Usuario:</label>
-                <input type="text" name="username" id="reg-user-name"><br>
+                <input type="text" name="username" id="reg-user-name" required><br>
                 <label for="email">Correo electrónico:</label>
-                <input type="email" name="email" id="e-mail"><br>
+                <input type="email" name="email" id="e-mail" required><br>
                 <label for="reg-password">Contraseña:</label>
-                <input type="password" name="password" id="reg-password">
-                <input type="submit" value="Enviar">
+                <input type="password" name="password" id="reg-password" required>
+                <input type="submit" value="Enviar" class="btn btn-outline-primary">
             </form>
             <!-- Ingresar -->
             <h2>INGRESAR</h2>
             <p>¿Ya tienes una cuenta? Ingresa aquí usando tus credenciales.</p>
             <form action="/passport/login" method="POST">
                 <label for="log-user-name">Usuario:</label>
-                <input type="text" name="username" id="log-user-name"><br>
+                <input type="text" name="username" id="log-user-name" required><br>
                 <label for="log-password">Contraseña:</label>
-                <input type="password" name="password" id="log-password">
+                <input type="password" name="password" id="log-password" required>
                 <input type="submit" value="Entrar">
             </form>
         </div>
     </main>
-    <script src=""></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <!-- Pie de página con info de contacto y legales -->
     <footer>
 

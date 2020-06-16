@@ -40,6 +40,40 @@ const createDream = (dream, cb) => {
 };
 
 /**
+ * addComment agrega un comentario al sueño que se está viendo
+ * @param {string} comment el comentario a agregar
+ * @param {string} id el sueño a comentar
+ * @param {function} cb el callback
+ */
+const addComment = (comment, id, cb) => {
+// Primero se conecta con la base de datos
+db.MongoClient.connect(db.url, db.config, (err, client) => {
+  // Si hubo problemas para conectarse devolvemos al callback el objeto success como false
+  if (err) {
+    cb({ success: false, message: "No se pudo conectar con el servicio de datos. Por favor intente nuevamente en otro momento." });
+  } else {
+    // Si se conectó a MongoDB, inicializamos la base de datos y la colección
+    const Pernoctario = client.db("Pernoctario");
+    const dreamsCollection = Pernoctario.collection("dreams");
+    // Busco el sueño con el id
+    dreamsCollection.updateOne({ _id: new db.mongodb.ObjectID(id)}, { $push: {comments: comment}}, (err, match) => {
+      if (err) {
+        cb({ success: false, message: "Hubo un error en la solicitud de respuesta del servicio de datos. Por favor intente nuevamente en otro momento." });
+      } else {
+        cb({
+          success: true,
+          message: "Se agregó el comentario."
+        });
+      }
+      // Cerramos la conexión con la base de datos
+      client.close();
+    });
+  }
+});
+};
+
+
+/**
  * getDreamById busca un sueño usando su id como parámetro y lo retorna con el oid 
  * @param {string} id el código identificatorio de mongo para el sueño
  * @param {function} cb la función callback
@@ -67,7 +101,8 @@ const getDreamById = (id, cb) => {
               body: match.body,
               author: match.author,
               tags: match.tags,
-              date: match.date
+              date: match.date,
+              comments: match.comments
             },
             message: "Se encontró un sueño con la id especificada."
           });
@@ -164,6 +199,7 @@ const getDreamsByTags = (tags, cb) => {
 
 module.exports = {
   createDream,
+  addComment,
   getDreamById,
   getDreamByAuthor,
   getDreamsByTags

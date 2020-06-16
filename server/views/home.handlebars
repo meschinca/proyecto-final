@@ -1,13 +1,13 @@
 <form action="/home/new-dream" method="post" id="new-dream">
 <label for="title">Título</label>
-<input type="text" name="title" id="title">
+<input type="text" name="title" id="title" required>
 <label for="abstract">Resumen</label>
-<textarea name="abstract" id="abstract" cols="30" rows="10" maxlength="150" form="new-dream" placeholder="Máximo de 150 caracteres"></textarea>
+<textarea name="abstract" id="abstract" cols="30" rows="10" maxlength="150" form="new-dream" placeholder="Máximo de 150 caracteres"  required></textarea>
 <label for="body">Cuerpo</label>
 <textarea name="body" id="body" cols="30" rows="10" maxlength="3000" form="new-dream" placeholder="Escribe aquí tu sueño en detalle"></textarea>
-<input type="text" name="author" id="author" value="{{user.username}}" hidden>
+<input type="text" name="author" id="author" value="{{user.username}}" hidden  required>
 <label for="tags">Etiquetas</label>
-<input type="text" name="tags" id="tags" placeholder='Separadas por una coma ",". Ej.: familia, tristeza, sorpresa, etc...'>
+<input type="text" name="tags" id="tags" placeholder='Separadas por una coma ",". Ej.: familia, tristeza, sorpresa, etc...'  required>
 <input type="submit" value="Guardar">
 </form>
 {{#if message}}

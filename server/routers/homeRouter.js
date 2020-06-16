@@ -24,15 +24,29 @@ homeRouter.post("/new-dream", (req, res) => {
 });
 
 // GET para obtener los sueños por autor
-homeRouter.get("/dreams", (req, res) =>{
+homeRouter.get("/dreams", (req, res) => {
   dream.getDreamByAuthor(req.query.author, result => {
     // Si hubo un error devuelvo el mensaje
     if (!result.success) {
       res.json(result);
     } else {
       res.render("dream-archive", {
+        layout: "main",
+        user: req.session.currentUser,
         dreams: result.dreams
       });
+    }
+  });
+});
+
+// POST para agrgar un comentario
+homeRouter.post("/add-comment", (req, res) => {
+  dream.addComment(req.body.comment, req.body.id, result =>{
+    // Si hubo un error devuelvo el mensaje
+    if (!result.success) {
+      res.json(result);
+    } else {
+      res.redirect(`/explore/dreams/${req.body.id}`);
     }
   });
 });

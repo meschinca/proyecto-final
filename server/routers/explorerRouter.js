@@ -14,7 +14,12 @@ explorerRouter.get("/dreams", (req, res) => {
       res.json(result);
     } else {
       // Sino devuelvo el array de sueños
-      res.json(result.dreams);
+      res.render("dream-archive", {
+        layout: "main",
+        user: req.session.currentUser,
+        dreams: result.dreams,
+        message: result.message
+      });
     }
   });
 });
@@ -27,7 +32,16 @@ explorerRouter.get("/dreams/:id", (req, res) => {
       res.json(result);
     } else {
       // Sino devuelvo el sueño
-      res.json(result.dream);
+      let diffAuthor = "";
+      if (req.session.currentUser) {
+        diffAuthor = (req.session.currentUser.username === result.dream.author) ? false : true;
+      }
+      res.render("dream-view", {
+        layout: "main",
+        user: req.session.currentUser,
+        dream: result.dream,
+        diffAuthor
+      });
     }
   });
 });
