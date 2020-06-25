@@ -17,8 +17,4 @@ Para llevar a cabo esta Web App, identifico inicialmente __ componentes escencia
 4. **_Exploración y búsqueda_**. Si las entradas de registro son públicas, apareceran aquí.
 5. **_Vista de sueño_**. Permite ver la entrada seleccionada e interactuar con la misma (comentar y anotar).
 
-++ Insertar imágen de wireframe aquí ++
-
-## Requerimientos para iniciar la aplicación
-
-Por el momento, es necesario instalar la base de datos de MongoDB y crear una db con el nombre Pernoctario y dos collection llamadas users y dreams.
+![Design Flowchart](https://github.com/meschinca/proyecto-final/prototype/design_flowchart.png "Diseño preliminar de la aplicación")
