@@ -17,4 +17,4 @@ Para llevar a cabo esta Web App, identifico inicialmente __ componentes escencia
 4. **_Exploración y búsqueda_**. Si las entradas de registro son públicas, apareceran aquí.
 5. **_Vista de sueño_**. Permite ver la entrada seleccionada e interactuar con la misma (comentar y anotar).
 
-![Design Flowchart](https://github.com/meschinca/proyecto-final/prototype/design_flowchart.png "Diseño preliminar de la aplicación")
+![Design Flowchart](https://github.com/meschinca/proyecto-final/blob/master/prototype/design_flowchart.png "Diseño preliminar de la aplicación")
