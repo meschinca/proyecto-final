@@ -2,7 +2,6 @@
 <h3>por {{dream.author}}</h3>
 <h2>{{dream.abstract}}</h2>
 <p>{{dream.body}}</p>
-{{#if diffAuthor}}
 <form action="/home/add-comment" method="POST">
   <input type="text" name="id" value="{{dream.oid}}" hidden>
   <label for="comment">Agrega un Comentario:</label>
@@ -10,7 +9,6 @@
   <input type="submit" value="Comentar">
 </form><br>
 <br>
-{{/if}}
 <h3>Comentarios</h3>
 <ul>
   {{#each dream.comments}}

@@ -18,3 +18,16 @@ Para llevar a cabo esta Web App, identifico inicialmente __ componentes escencia
 5. **_Vista de sueño_**. Permite ver la entrada seleccionada e interactuar con la misma (comentar y anotar).
 
 ![Design Flowchart](https://github.com/meschinca/proyecto-final/blob/master/prototype/design_flowchart.png "Diseño preliminar de la aplicación")
+
+## Lista de tareas pendientes
+
+- Agregar la opción de público o privado al crear sueños (HECHO)
+- Reemplazar formularios por AJAX XHR según corresponda
+- Mejorar interfaz de  comentarios y su modelo en DB
+- Convetir Home en SPA para el formulario de crear sueños y mostrar los sueños creados
+- LLevar la barra de búsqueda al Navbar
+- Crear la presentación en tarjetas de los resultados de búsqueda
+- Agregar otros métodos de búsqueda
+- Implementar el carroussel de tarjetas de sueños en la página de bienvenida
+- Crear la página de perfil de usuario y modificar el modelo de usuario en DB
+- Mejorar la presentación visual y gráficas

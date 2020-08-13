@@ -24,7 +24,8 @@ const createDream = (dream, cb) => {
         body: dream.body,
         author: dream.author,
         tags: formattedTags,
-        date: new Date().toISOString()
+        date: new Date().toISOString(),
+        visibility: dream.visibility
       };
       dreamsCollection.insertOne(newDream, (err, match) => {
         if (err) {
@@ -46,36 +47,37 @@ const createDream = (dream, cb) => {
  * @param {function} cb el callback
  */
 const addComment = (comment, id, cb) => {
-// Primero se conecta con la base de datos
-db.MongoClient.connect(db.url, db.config, (err, client) => {
-  // Si hubo problemas para conectarse devolvemos al callback el objeto success como false
-  if (err) {
-    cb({ success: false, message: "No se pudo conectar con el servicio de datos. Por favor intente nuevamente en otro momento." });
-  } else {
-    // Si se conectó a MongoDB, inicializamos la base de datos y la colección
-    const Pernoctario = client.db("Pernoctario");
-    const dreamsCollection = Pernoctario.collection("dreams");
-    // Busco el sueño con el id
-    dreamsCollection.updateOne({ _id: new db.mongodb.ObjectID(id)}, { $push: {comments: comment}}, (err, match) => {
-      if (err) {
-        cb({ success: false, message: "Hubo un error en la solicitud de respuesta del servicio de datos. Por favor intente nuevamente en otro momento." });
-      } else {
-        cb({
-          success: true,
-          message: "Se agregó el comentario."
-        });
-      }
-      // Cerramos la conexión con la base de datos
-      client.close();
-    });
-  }
-});
+  // Primero se conecta con la base de datos
+  db.MongoClient.connect(db.url, db.config, (err, client) => {
+    // Si hubo problemas para conectarse devolvemos al callback el objeto success como false
+    if (err) {
+      cb({ success: false, message: "No se pudo conectar con el servicio de datos. Por favor intente nuevamente en otro momento." });
+    } else {
+      // Si se conectó a MongoDB, inicializamos la base de datos y la colección
+      const Pernoctario = client.db("Pernoctario");
+      const dreamsCollection = Pernoctario.collection("dreams");
+      // Busco el sueño con el id
+      dreamsCollection.updateOne({ _id: new db.mongodb.ObjectID(id) }, { $push: { comments: comment } }, (err, match) => {
+        if (err) {
+          cb({ success: false, message: "Hubo un error en la solicitud de respuesta del servicio de datos. Por favor intente nuevamente en otro momento." });
+        } else {
+          cb({
+            success: true,
+            message: "Se agregó el comentario."
+          });
+        }
+        // Cerramos la conexión con la base de datos
+        client.close();
+      });
+    }
+  });
 };
 
 
 /**
  * getDreamById busca un sueño usando su id como parámetro y lo retorna con el oid 
  * @param {string} id el código identificatorio de mongo para el sueño
+ * @param {object} user el objeto usuario del que realiza la solicitud
  * @param {function} cb la función callback
  */
 const getDreamById = (id, cb) => {
@@ -101,12 +103,15 @@ const getDreamById = (id, cb) => {
               body: match.body,
               author: match.author,
               tags: match.tags,
+              visibility: match.visibility,
               date: match.date,
               comments: match.comments
             },
             message: "Se encontró un sueño con la id especificada."
           });
+
         }
+
         // Cerramos la conexión con la base de datos
         client.close();
       });
@@ -133,14 +138,16 @@ const getDreamByAuthor = (author, cb) => {
         if (err) {
           cb({ success: false, message: "Hubo un error en la solicitud de respuesta del servicio de datos. Por favor intente nuevamente en otro momento." });
         } else {
-          match = match.map(dream =>({
+          match = match.map(dream => ({
             oid: dream._id.toString(),
             title: dream.title,
             abstract: dream.abstract,
             body: dream.body,
             author: dream.author,
             tags: dream.tags,
-            date: dream.date
+            visibility: match.visibility,
+            date: dream.date,
+            comments: match.comments
           }));
           cb({
             success: true,
@@ -171,18 +178,20 @@ const getDreamsByTags = (tags, cb) => {
       const Pernoctario = client.db("Pernoctario");
       const dreamsCollection = Pernoctario.collection("dreams");
       // Hago una búsqueda en la colección para los tags 
-      dreamsCollection.find( { tags: { $in: tags } } ).toArray((err, match) => {
+      dreamsCollection.find({ tags: { $in: tags } }).toArray((err, match) => {
         if (err) {
           cb({ success: false, message: "Hubo un error en la solicitud de respuesta del servicio de datos. Por favor intente nuevamente en otro momento." });
         } else {
-          match = match.map(dream =>({
+          match = match.map(dream => ({
             oid: dream._id.toString(),
             title: dream.title,
             abstract: dream.abstract,
             body: dream.body,
             author: dream.author,
             tags: dream.tags,
-            date: dream.date
+            visibility: dream.visibility,
+            date: dream.date,
+            comments: match.comments
           }));
           cb({
             success: true,

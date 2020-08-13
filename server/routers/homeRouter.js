@@ -9,6 +9,7 @@ homeRouter.post("/new-dream", (req, res) => {
   if (!req.session.currentUser) {
     res.redirect("/");
   } else {
+    console.log(req.body);
     // 2- Si hay una sesión activa, agrega el sueño a la colección dreams
     dream.createDream(req.body, result => {
       // Si hubo un error devuelvo el mensaje
@@ -26,15 +27,28 @@ homeRouter.post("/new-dream", (req, res) => {
 // GET para obtener los sueños por autor
 homeRouter.get("/dreams", (req, res) => {
   dream.getDreamByAuthor(req.query.author, result => {
+    const user = req.session.currentUser;
     // Si hubo un error devuelvo el mensaje
     if (!result.success) {
       res.json(result);
     } else {
-      res.render("dream-archive", {
-        layout: "main",
-        user: req.session.currentUser,
-        dreams: result.dreams
-      });
+      // Si el que lo solicita no es el autor 
+      if (user.username != req.query.author) {
+        // Filtramos los sueños por visibilidad pública
+        result.dreams = result.dreams.filter(dream => { return dream.visibility == "on" });
+        res.render("dream-archive", {
+          layout: "main",
+          user: user,
+          dreams: result.dreams
+        });
+      } else {
+        // Si lo solicita el autor
+        res.render("dream-archive", {
+          layout: "main",
+          user: user,
+          dreams: result.dreams
+        });
+      }
     }
   });
 });
