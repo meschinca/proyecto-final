@@ -2,16 +2,21 @@
 <h3>por {{dream.author}}</h3>
 <h2>{{dream.abstract}}</h2>
 <p>{{dream.body}}</p>
+{{#if user}}
 <form action="/home/add-comment" method="POST">
   <input type="text" name="id" value="{{dream.oid}}" hidden>
+  <input type="text" name="author" value="{{user.username}}" hidden>
   <label for="comment">Agrega un Comentario:</label>
   <textarea name="comment" id="comment" cols="30" rows="2" required></textarea>
   <input type="submit" value="Comentar">
 </form><br>
+{{/if}}
 <br>
 <h3>Comentarios</h3>
 <ul>
   {{#each dream.comments}}
-    <li>{{this}}</li>
+    <li>{{this.author}} dice:</li>
+    <li>{{this.comment}}</li>
+    <br>
   {{/each}}
 </ul>

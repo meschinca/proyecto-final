@@ -55,7 +55,7 @@ homeRouter.get("/dreams", (req, res) => {
 
 // POST para agrgar un comentario
 homeRouter.post("/add-comment", (req, res) => {
-  dream.addComment(req.body.comment, req.body.id, result =>{
+  dream.addComment(req.body.comment, req.body.id, req.body.author, result =>{
     // Si hubo un error devuelvo el mensaje
     if (!result.success) {
       res.json(result);

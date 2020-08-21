@@ -46,7 +46,7 @@ const createDream = (dream, cb) => {
  * @param {string} id el sueño a comentar
  * @param {function} cb el callback
  */
-const addComment = (comment, id, cb) => {
+const addComment = (comment, id, author, cb) => {
   // Primero se conecta con la base de datos
   db.MongoClient.connect(db.url, db.config, (err, client) => {
     // Si hubo problemas para conectarse devolvemos al callback el objeto success como false
@@ -57,7 +57,7 @@ const addComment = (comment, id, cb) => {
       const Pernoctario = client.db("Pernoctario");
       const dreamsCollection = Pernoctario.collection("dreams");
       // Busco el sueño con el id
-      dreamsCollection.updateOne({ _id: new db.mongodb.ObjectID(id) }, { $push: { comments: comment } }, (err, match) => {
+      dreamsCollection.updateOne({ _id: new db.mongodb.ObjectID(id) }, { $push: { comments: {comment:comment, author:author }} }, (err, match) => {
         if (err) {
           cb({ success: false, message: "Hubo un error en la solicitud de respuesta del servicio de datos. Por favor intente nuevamente en otro momento." });
         } else {
