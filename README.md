@@ -1,5 +1,9 @@
 # proyecto-final
 
+## Vista previa
+
+https://mcznq.sse.codesandbox.io/
+
 ## Introducción
 
 El objetivo de este proyecto es integrar los conocimientos aprendidos durante el curso de Node.js realizando una demo de aplicación web. Para el front-end se utilizará lo visto para HTML5, CSS3 y ES6. Para el back-end se usará Node.js, Express para el servidor, Handlebars para crear las vistas y MongoDB para almacenar datos.
