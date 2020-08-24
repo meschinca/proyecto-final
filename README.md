@@ -2,7 +2,7 @@
 
 ## Vista previa
 
-https://dlrdj.sse.codesandbox.io/
+https://rijmb.sse.codesandbox.io/
 
 ## Introducción
 
