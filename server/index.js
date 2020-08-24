@@ -30,6 +30,9 @@ app.use(express.static(path.join(__dirname, "public")));
 // Body parser para tipo de contenido "aplication/x-www-form-urlencoded"
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Body parser para tipo de contenido "aplication/json"
+app.use(bodyParser.json());
+
 // Configuración del objeto de sesión
 app.use(expSession({
   secret: "%vwK9+yMufPR-@9@",

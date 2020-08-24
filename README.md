@@ -25,13 +25,13 @@ Para llevar a cabo esta Web App, identifico inicialmente __ componentes escencia
 
 ## Lista de tareas pendientes
 
-- Agregar la opción de público o privado al crear sueños (HECHO)
-- Reemplazar formularios por AJAX XHR según corresponda
-- Mejorar interfaz de  comentarios y su modelo en DB
+- ~~Agregar la opción de público o privado al crear sueños~~ (HECHO)
+- Reemplazar formularios por AJAX XHR según corresponda (EN PROGRESO)
+- ~~Mejorar interfaz de  comentarios y su modelo en DB~~ (HECHO)
 - Convetir Home en SPA para el formulario de crear sueños y mostrar los sueños creados
-- LLevar la barra de búsqueda al Navbar
-- Crear la presentación en tarjetas de los resultados de búsqueda
+- LLevar la barra de búsqueda al Navbar  (EN PROGRESO)
+- ~~Crear la presentación en tarjetas de los resultados de búsqueda~~ (HECHO)
 - Agregar otros métodos de búsqueda
-- Implementar el carroussel de tarjetas de sueños en la página de bienvenida
+- ~~Implementar el carroussel de tarjetas de sueños en la página de bienvenida~~ (HECHO)
 - Crear la página de perfil de usuario y modificar el modelo de usuario en DB
-- Mejorar la presentación visual y gráficas
+- Mejorar la presentación visual y gráficas  (EN PROGRESO)

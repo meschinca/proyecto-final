@@ -1,34 +1,37 @@
 <h1 class="text-center mt-3">Ingresa tu sueño aquí</h1>
 <div class="container mt-5 mb-5">
-<form action="/home/new-dream" method="post" id="new-dream">
-  <div class="form-group">
-    <label for="title">Título</label>
-    <input type="text" name="title" id="title" required class="form-control">
-  </div>
-  <div class="form-group">
-  <label for="abstract">Resumen</label>
-  <textarea name="abstract" id="abstract" cols="30" rows="2" maxlength="150" form="new-dream"
-    placeholder="Máximo de 150 caracteres" required class="form-control"></textarea>
-  </div>
-<div class="form-group">
-  <label for="body">Cuerpo</label>
-  <textarea name="body" id="body" cols="30" rows="5" maxlength="3000" form="new-dream"
-    placeholder="Escribe aquí tu sueño en detalle" class="form-control"></textarea>
-</div>
-  <input type="text" name="author" id="author" value="{{user.username}}" hidden required>
-<div class="form-group">
-  <label for="tags">Etiquetas</label>
-  <input type="text" name="tags" id="tags"
-    placeholder='Separadas por una coma ",". Ej.: familia, tristeza, sorpresa, etc...' required class="form-control">
-</div>
-<div class="form-group">
-  <label for="visibility">Visibilidad: permitir que otros vean mi sueño</label>
-  <input type="checkbox" name="visibility">
-</div>
-  <input type="submit" value="Guardar" class="btn btn-primary">
-</form>
+  <form action="/home/new-dream" method="post" id="new-dream">
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input type="text" name="title" id="title" required class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="abstract">Resumen</label>
+      <textarea name="abstract" id="abstract" cols="30" rows="2" form="new-dream" required
+        class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="body">Cuerpo</label>
+      <textarea name="body" id="body" cols="30" rows="5" form="new-dream" placeholder="Escribe aquí tu sueño en detalle"
+        required class="form-control"></textarea>
+    </div>
+    <input type="text" name="author" id="author" value="{{user.username}}" hidden required>
+    <div class="form-group">
+      <label for="tags">Etiquetas</label>
+      <input type="text" name="tags" id="tags"
+        placeholder='Separadas por una coma ",". Ej.: familia, tristeza, sorpresa, etc...' required
+        class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="visibility">Visibilidad: permitir que otros vean mi sueño</label>
+      <input type="checkbox" name="visibility">
+    </div>
+    <input type="submit" value="Guardar" class="btn btn-primary">
+  </form>
 </div>
 {{#if message}}
-<p>{{message}}</p>
+<div class="alert alert-primary" role="alert"">
+  <p class="text-center">{{message}}</p>
+</div>
 {{/if}}
 <p></p>

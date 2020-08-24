@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,32 +8,62 @@
   <link rel="stylesheet" href="/style/bootstrap.min.css">
   <link rel="stylesheet" href="/style/main.css">
 </head>
+
 <body>
   <nav>
     <ul class="navbar">
       {{#if user}}
       <li class="navbar"><a href="/home" class="navbar">Home</a></li>
-      <li class="navbar"><a href="/explore" class="navbar">Buscar</a></li>
+      <li class="navbar">
+        <form action="/explore/dreams" method="GET">
+          <div class="col-auto">
+            <div class="input-group">
+              <input type="text" name="tags"
+                placeholder="Usa comas para separar las etiquetas. Ej.: caída, animales, familia, dinero, pesadilla"
+                required class="form-control">
+              <div class="input-group-append">
+                <input type="submit" value="Buscar" class="btn btn-secondary">
+              </div>
+            </div>
+          </div>
+        </form>
+      </li>
       <li class="navbar"><a href="/home" class="navbar">Agregar Sueño</a></li>
       <li class="navbar"><a href="/home/dreams?author={{user.username}}" class="navbar">Mis sueños</a></li>
       <li class="navbar"><a href="/home/profile" class="navbar">Perfil</a></li>
       <li class="navbar"><a href="/passport/logout" class="navbar">Cerrar Sesión</a></li>
       {{else}}
-      <li class="navbar"><a href="/explore" class="navbar">Buscar</a></li>
+      <li class="navbar">
+        <form action="/explore/dreams" method="GET">
+          <div class="col-auto">
+            <div class="input-group">
+              <input type="text" name="tags"
+                placeholder="Usa comas para separar las etiquetas. Ej.: caída, animales, familia, dinero, pesadilla"
+                required class="form-control">
+              <div class="input-group-append">
+                <input type="submit" value="Buscar" class="btn btn-secondary">
+              </div>
+            </div>
+          </div>
+        </form>
       <li class="navbar"><a href="/" class="navbar">Iniciar Sesión</a></li>
       {{/if}}
     </ul>
   </nav>
   {{{body}}}
-  <footer>Footer</footer>
+  <footer class="border-top">
+    <p class="text-center">Copyright Mauro E. Schinca</p>
+    <p class="text-center">Contacto: meschinca@gmail.com</p>
+  </footer>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

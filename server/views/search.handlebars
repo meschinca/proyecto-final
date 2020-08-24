@@ -1,5 +1,13 @@
 <h2>BÚSQUEDA</h2>
 <form action="/explore/dreams" method="GET">
-  <input type="text" name="tags" placeholder="Buscar ..." required>
-  <input type="submit" value="Buscar">
+  <div class="col-auto">
+    <div class="input-group">
+      <input type="text" name="tags"
+        placeholder="Usa comas para separar las etiquetas. Ej.: caída, animales, familia, dinero, pesadilla" required
+        class="form-control">
+      <div class="input-group-append">
+        <input type="submit" value="Buscar" class="btn btn-secondary">
+      </div>
+    </div>
+  </div>
 </form>

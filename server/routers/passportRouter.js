@@ -26,14 +26,13 @@ passportRouter.post("/signup", (req, res) => {
             } else {
               // 2- Uso la función para registrar nuevo usuario
               passport.registerNewUser(req.body.username, req.body.password, req.body.email, result => {
-                // 3- Ruteo a Home o devuelvo un error, según corresponda
                 // Si no se pudo registrar al usuario en la base de datos
                 if (!result.success) {
                   res.json(result);
                 } else {
-                  // Sino, confirmamos la creación del usuario y redireccionamos a /home
+                  // Sino, confirmamos la creación del usuario
                   req.session.currentUser = result.user;
-                  res.redirect("/home");
+                  res.json(result);
                 }
               });
             }
@@ -56,13 +55,13 @@ passportRouter.post("/login", (req, res) => {
       if (!result.user) {
         res.json(result);
       } else {
-        // 2- Ruteo a Home o devuelvo un error, según corresponda
-        passport.login(req.body.username, req.body.password, result => {
+        // 2- Si existe el usuario
+        passport.loginUser(req.body.username, req.body.password, result => {
           if (!result.success) {
             res.json(result);
           } else {
             req.session.currentUser = result.user;
-            res.redirect("/home");
+            res.json(result);
           }
         });
       }

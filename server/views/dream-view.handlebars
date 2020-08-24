@@ -1,22 +1,31 @@
-<h1>{{dream.title}}</h1>
-<h3>por {{dream.author}}</h3>
-<h2>{{dream.abstract}}</h2>
-<p>{{dream.body}}</p>
+<div class="jumbotron">
+  <h1 class="text-center">{{dream.title}}</h1>
+  <h4 class="text-center">por <a href="/home/dreams?author={{dream.author}}">{{dream.author}}</a></h3><br>
+  <p class="text-center">Etiquetas: {{#each dream.tags}} <a href="/explore/dreams?tags={{this}}"><span class="border">{{this}}</span></a> {{/each}}</p>
+    <h2 class="text-center">{{dream.abstract}}</h2>
+    <p class="text-center">{{dream.body}}</p>
+</div>
 {{#if user}}
 <form action="/home/add-comment" method="POST">
-  <input type="text" name="id" value="{{dream.oid}}" hidden>
-  <input type="text" name="author" value="{{user.username}}" hidden>
-  <label for="comment">Agrega un Comentario:</label>
-  <textarea name="comment" id="comment" cols="30" rows="2" required></textarea>
-  <input type="submit" value="Comentar">
+  <div class="input-group">
+    <input type="text" name="id" value="{{dream.oid}}" hidden>
+    <input type="text" name="author" value="{{user.username}}" hidden>
+    <div class="input-group-prepend">
+      <span class="input-group-text"><label for="comment">Agrega un Comentario:</label></span>
+    </div>
+    <textarea class="form-control form-control-sm" name="comment" id="comment" required></textarea>
+    <div class="input-group-append">
+      <input type="submit" value="Comentar" class="btn btn-secondary">
+    </div>
+  </div>
 </form><br>
 {{/if}}
 <br>
 <h3>Comentarios</h3>
-<ul>
+<ul class="list-group">
   {{#each dream.comments}}
-    <li>{{this.author}} dice:</li>
-    <li>{{this.comment}}</li>
-    <br>
+  <li class="list-group-item">{{this.author}} dice: <br>
+    {{this.comment}}</li>
+  <br>
   {{/each}}
 </ul>

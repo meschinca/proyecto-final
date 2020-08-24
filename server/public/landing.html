@@ -6,100 +6,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Bienvenido!</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
-    <link rel="stylesheet" href="style/welcome.css">
 </head>
 
 <body>
     <main>
         <!-- Pancarta de bienvenida -->
-        <div id="welcome-banner">
-            <h1 id="welcome-text">¡Bienvenido a Pernoctario!</h1>
+        <div class="jumbotron jumbotron-fluid">
+            <h1 class="text-center">¡Bienvenido a Pernoctario!</h1>
         </div>
         <!-- Sección EXPLORAR -->
-        <div id="exp-container" class="sect-container">
-            <!-- Explorar -->
-            <h2>EXPLORAR</h2>
-            <p>¿Eres nuevo aquí? Echa un vistazo a los sueños de otros. <br>
-                Descubre similitudes y reflexiona con las interpretaciones de otros usuarios.</p>
-            <!-- Presentación de sueños seleccionados como tarjetas deslizantes -->
-            <div id="card-slider" class="slider">
-                <!-- Botón para volver atrás -->
-                <button id="rw-slide"><img src="" alt="" srcset=""></button>
-                <!-- Tarjeta 1 -->
-                <div id="card-1" class="card">
-                    <article class="in-card">
-                        <imgsrc="" alt="user avatar" srcset="">
-                            <p>Usuario 1</p>
-                            <h1>Sueño 1</h1>
-                            <p>Lorem ipsum dolor sit amet, <br>
-                                consectetur adipisicing elit, <br>
-                                sed do eiusmod tempor incididunt <br>
-                                ut labore et dolore magna aliqua.</p>
-                    </article>
-                </div>
-                <!-- Tarjeta 2 -->
-                <div id="card-2" class="card">
-                    <article>
-                        <img src="" alt="user avatar" srcset="">
-                        <p>Usuario 2</p>
-                        <h1>Sueño 2</h1>
-                        <p>Lorem ipsum dolor sit amet, <br>
-                            consectetur adipisicing elit, <br>
-                            sed do eiusmod tempor incididunt <br>
-                            ut labore et dolore magna aliqua.</p>
-                    </article>
-                </div>
-                <!-- Botón para avanzar -->
-                <button id="ff-slide"><img src="" alt="" srcset=""></button>
-            </div>
-            <!-- Búsqueda -->
-            <h2>BÚSQUEDA</h2>
-            <p>¿No encuentras lo que buscas? Busca por etiquetas <br>
-                Ej.: caída, animales, familia, dinero, pesadilla</p>
-            <form action="/explore/dreams" method="GET">
-                <div class="form-row align-items-left">
-                    <div class="col-auto">
-                        <input type="text" name="tags" placeholder="Buscar ..." required class="form-control">
-                        <input type="submit" value="Buscar">
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <!-- Explorar -->
+                    <h2 class="text-center">EXPLORAR</h2>
+                    <p class="text-center">¿Eres nuevo aquí? Echa un vistazo a los sueños de otros. <br>
+                        Descubre similitudes y reflexiona con las interpretaciones de otros usuarios.</p>
+                    <!-- Presentación de sueños seleccionados como tarjetas deslizantes -->
+                    <div id="carouselExampleIndicators" class="carousel slide border-top border-bottom" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div id="dream1" class="carousel-item active">
+                            </div>
+                            <div id="dream2" class="carousel-item">
+                            </div>
+                            <div id="dream3" class="carousel-item">
+                            </div>
+                            <div id="dream4" class="carousel-item">
+                            </div>
+                            <div id="dream5" class="carousel-item">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
+                    <br>
+                    <br>
+                    <!-- Búsqueda -->
+                    <h2 class="text-center">BÚSQUEDA</h2>
+                    <p class="text-center">¿No encuentras lo que buscas? Busca por etiquetas</p>
+                    <form action="/explore/dreams" method="GET">
+                        <div class="col-auto">
+                            <div class="input-group">
+                                <input type="text" name="tags"
+                                    placeholder="Usa comas para separar las etiquetas. Ej.: caída, animales, familia, dinero, pesadilla"
+                                    required class="form-control">
+                                <div class="input-group-append">
+                                    <input type="submit" value="Buscar" class="btn btn-secondary">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
-        <!-- Sección REGISTRO -->
-        <div id="reg-container" class="sect-container">
-            <!-- Registrar -->
-            <h2>REGISTRO</h2>
-            <p>Para comenzar a escribir y catalogar tus sueños, o para <br>
-                comentar las publicaciones de otros, crea una cuenta. ¡Es gratis!</p>
-            <form action="/passport/signup" method="POST">
-                <div class="form-group">
-                    <label for="reg-user-name">Usuario:</label>
-                    <input type="text" name="username" id="reg-user-name" required class="form-control"><br>
+                <!-- Sección REGISTRO -->
+
+                <div class="col">
+                    <!-- Registrar -->
+                    <h2>REGISTRO</h2>
+                    <p>Para comenzar a escribir y catalogar tus sueños, o para <br>
+                        comentar las publicaciones de otros, crea una cuenta. ¡Es gratis!</p>
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <label for="reg-user-name">Usuario:</label>
+                            <input type="text" name="username" id="reg-user-name" required class="form-control"><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico:</label>
+                            <input type="email" name="email" id="e-mail" required class="form-control"><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-password">Contraseña:</label>
+                            <input type="password" name="password" id="reg-password" required class="form-control">
+                        </div>
+                        <input type="submit" id="reg-btn" value="Enviar" class="btn btn-primary">
+                        <p id="reg-result"></p>
+                    </form>
+                    <!-- Ingresar -->
+                    <h2>INGRESAR</h2>
+                    <p>¿Ya tienes una cuenta? Ingresa aquí usando tus credenciales.</p>
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <label for="log-user-name">Usuario:</label>
+                            <input type="text" name="username" id="log-user-name" required class="form-control"><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="log-password">Contraseña:</label>
+                            <input type="password" name="password" id="log-password" required class="form-control">
+                        </div>
+                        <input type="submit" id="log-btn" value="Entrar" class="btn btn-primary">
+                        <p id="log-result"></p>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="email">Correo electrónico:</label>
-                    <input type="email" name="email" id="e-mail" required class="form-control"><br>
-                </div>
-                <div class="form-group">
-                    <label for="reg-password">Contraseña:</label>
-                    <input type="password" name="password" id="reg-password" required class="form-control">
-                </div>
-                <input type="submit" value="Enviar" class="btn btn-primary">
-            </form>
-            <!-- Ingresar -->
-            <h2>INGRESAR</h2>
-            <p>¿Ya tienes una cuenta? Ingresa aquí usando tus credenciales.</p>
-            <form action="/passport/login" method="POST">
-                <div class="form-group">
-                    <label for="log-user-name">Usuario:</label>
-                    <input type="text" name="username" id="log-user-name" required class="form-control"><br>
-                </div>
-                <div class="form-group">
-                    <label for="log-password">Contraseña:</label>
-                    <input type="password" name="password" id="log-password" required class="form-control">
-                </div>
-                <input type="submit" value="Entrar" class="btn btn-primary">
-            </form>
+            </div>
         </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -111,10 +116,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+    <script src="/script/landing.js"></script>
     <!-- Pie de página con info de contacto y legales -->
-    <footer>
-
-    </footer>
+    <footer class="border-top">
+        <p class="text-center">Copyright Mauro E. Schinca</p>
+        <p class="text-center">Contacto: meschinca@gmail.com</p>
+      </footer>
 </body>
 
 </html>

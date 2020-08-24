@@ -1,12 +1,14 @@
-<div class="container text-center mt-4 ml-4">
-  <ul class="dreamList">
+<div class="container">
+  <div class="row row-cols-3">
     {{#each dreams}}
-    <li class="dreamList text-left">
+    <div class="card col">
+      <div class="card-body">
       <a href="/explore/dreams/{{this.oid}}">
-        <h1>Título: {{this.title}}</h1>
-        <h2>Resumen: {{this.abstract}}</h2>
+        <h5>Título: {{this.title}}</h1>
+        <h6>Resumen: {{this.abstract}}</h2>
       </a>
-    </li>
+      </div>
+    </div>
     {{/each}}
-  </ul>
+  </div>
 </div>

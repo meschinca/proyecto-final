@@ -44,6 +44,13 @@ explorerRouter.get("/dreams/:id", (req, res) => {
   });
 });
 
+// Get para obtener los últimos 5 sueños añadidos
+explorerRouter.get("/dreams-last-five", (req, res) => {
+  dream.getLastFiveDreams(result => {
+    res.json(result);
+  });
+})
+
 // GET para ir a la página de búsqueda
 explorerRouter.get("/", (req, res) => {
   const user = req.session.currentUser;

@@ -38,12 +38,12 @@ const registerNewUser = (username, password, email, cb) => {
 };
 
 /**
- * login comapara las credenciales entregadas y las busca en la base de datos para validar el inicio de sesión
+ * loginUser comapara las credenciales entregadas y las busca en la base de datos para validar el inicio de sesión
  * @param {string} username el nombre de usuario usado
  * @param {string} password la contraseña correspondiente
  * @param {function} cb el callback para devolver la validación del ingreso
  */
-const login = (username, password, cb) => {
+const loginUser = (username, password, cb) => {
   // Primero se conecta a la base de datos
   db.MongoClient.connect(db.url, db.config, (err, client) => {
     // Si hubo problemas para conectarse devolvemos al callback el objeto success como false
@@ -95,7 +95,7 @@ const getUserByName = (username, cb) => {
           cb({ success: false, message: "Hubo un error en la solicitud de respuesta del servicio de datos. Por favor intente nuevamente en otro momento." });
         } else {
           if (!match) {
-            cb({ success: true, message: "No se encontró un usuario con ese nombre. Intente de nuevo." });
+            cb({ success: true, user: "", message: "No se encontró un usuario con ese nombre. Intente de nuevo." });
           } else {
             cb({ success: true, user: match, message: "Usuario encontrado." });
           }
@@ -142,7 +142,7 @@ const getUserByEmail = (email, cb) => {
 
 module.exports = {
   registerNewUser,
-  login,
+  loginUser,
   getUserByName,
   getUserByEmail
 }
