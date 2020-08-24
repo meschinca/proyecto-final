@@ -1,5 +1,5 @@
 // Fijamos el puerto
-const port = 5678;
+const port = process.env.PORT || 5678;
 // Traemos los módulos
 const express = require("express");
 const path = require("path");
