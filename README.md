@@ -2,7 +2,7 @@
 
 ## Vista previa
 
-https://rijmb.sse.codesandbox.io/
+https://pernoctario.herokuapp.com/
 
 ## Introducción
 
