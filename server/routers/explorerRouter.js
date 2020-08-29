@@ -1,6 +1,6 @@
 const express = require("express");
 
-const dream = require("../public/script/dream");
+const dream = require("../scripts/dream");
 
 const explorerRouter = express.Router();
 
